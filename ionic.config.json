@@ -1,0 +1,7 @@
+{
+  "name": "test_stop_clock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

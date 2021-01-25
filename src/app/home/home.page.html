@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-toolbar> 
+    <ion-title>
+      <ion-icon name="timer-outline" ></ion-icon>
+      Stop Watch 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+<p>{{stopwatch}}</p>
+  <ng-container *ngIf="stopwatchState == false; else stopwatchRunning">
+    <ion-fab-button class="centering" (click)="startStopwatch()" color= "light">
+      <ion-icon name="play"></ion-icon>
+    </ion-fab-button>
+  </ng-container>
+  <ng-template #stopwatchRunning>
+    <!--color= danger = red-->
+    <ion-fab-button class="centering" (click)="stopStopwatch()" color="danger">
+      <ion-icon name="square"></ion-icon>
+    </ion-fab-button>
+  </ng-template>
+
+  <ion-item class="topMargin">
+    <ion-label>
+      <ion-icon name="hourglass-outline"></ion-icon>
+      Timer
+    </ion-label>
+    <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="timer"></ion-datetime>
+  </ion-item>
+  <p>{{timer}}</p>
+  
+    <ng-container *ngIf="timeState == false; else timerRunning">
+      <ion-fab-button class="centering" (click)="startTimer()" color="light">
+        <ion-icon name="play"></ion-icon>
+      </ion-fab-button>
+    </ng-container>
+    <ng-template #timerRunning>
+      <ion-fab-button class="centering" (click)="stopTimer()" color="danger">
+        <ion-icon name="square"></ion-icon>
+      </ion-fab-button>
+    </ng-template>
+</ion-content>
